@@ -5,8 +5,12 @@ from flask import Flask, jsonify, request
 from google.cloud import storage
 from reportlab.lib.pagesizes import LETTER
 from reportlab.pdfgen import canvas
+from flask_cors import CORS
 
 app = Flask(__name__)
+# Allow any origin (good for a demo). For production you can restrict:
+# CORS(app, origins=["https://your‑user.github.io"])
+CORS(app, resources={r"/generate-pdf": {"origins": "https://hector-garrido.github.io"}})
 
 # -------------------------------------------------
 # Configuration – change these values once you create them

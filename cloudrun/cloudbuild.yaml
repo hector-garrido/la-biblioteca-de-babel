@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/la-biblioteca-de-babel-482521/babel-image-test', '.']
+images:
+  - 'gcr.io/la-biblioteca-de-babel-482521/babel-image-test'

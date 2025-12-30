@@ -1,0 +1,32 @@
+# ----- cloudrun/Dockerfile -----
+# Use the official slim Python image (lightweight, includes pip)
+FROM python:3.11-slim
+
+# Install system packages needed by ReportLab (fonts, libjpeg, etc.)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        gcc \
+        libffi-dev \
+        libc-dev \
+        libjpeg62-turbo-dev \
+        zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non‑root user (good practice for Cloud Run)
+RUN useradd -m appuser
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code
+COPY . .
+
+# Switch to non‑root user
+USER appuser
+
+# Expose the port Cloud Run expects (8080)
+EXPOSE 8080
+
+# Tell Gunicorn (or Flask’s built‑in server) to listen on $PORT
+ENV PORT=8080
+CMD ["python", "main.py"]
+# -------------------------------

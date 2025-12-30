@@ -1,6 +1,6 @@
 // Replace with the URL of your Cloud Run service (or Cloud Function)
 // Example: https://pdf-generator-abcde-uc.a.run.app/generate-pdf
-const API_URL = "https://YOUR_CLOUD_RUN_URL/generate-pdf";
+const API_URL = "https://babel-test-158992092192.us-central1.run.app/generate-pdf";
 
 document.getElementById("genBtn").addEventListener("click", async () => {
   const btn = document.getElementById("genBtn");

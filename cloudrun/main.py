@@ -11,7 +11,8 @@ app = Flask(__name__)
 # -------------------------------------------------
 # Configuration – change these values once you create them
 # -------------------------------------------------
-BUCKET_NAME = "my-pdf-demo-bucket"          # Cloud Storage bucket (public)
+# BUCKET_NAME = "my-pdf-demo-bucket"          # Cloud Storage bucket (public)
+BUCKET_NAME = "la-biblioteca-de-babel-bucket"          # Cloud Storage bucket (public)
 PROJECT_ID  = os.getenv("GOOGLE_CLOUD_PROJECT")  # auto‑filled by Cloud Run
 # -------------------------------------------------
 

@@ -6,6 +6,7 @@ from google.cloud import storage
 from reportlab.lib.pagesizes import LETTER
 from reportlab.pdfgen import canvas
 from flask_cors import CORS
+import random
 
 app = Flask(__name__)
 # Allow any origin (good for a demo). For production you can restrict:
@@ -28,13 +29,33 @@ def _create_pdf(local_path: str):
     """Very small PDF – replace with whatever you need."""
     c = canvas.Canvas(local_path, pagesize=LETTER)
     w, h = LETTER
-    c.drawString(100, h - 100, "Hello from the PDF generator!")
+    chars = 'abcdefghijlmnoprstuvyz,. '
+
+    # title
+    c.setFont('Times-Roman',size=30)
+    aux_length = random.randint(4,30)
     c.drawString(
-        100,
-        h - 130,
-        f"Generated at {datetime.now():%Y-%m-%d %H:%M UTC}",
+        w/2 - (aux_length//2) *int(round( 6.6*(2), 0)) ,
+        h-300,
+        ''.join(random.choices(chars,k=aux_length))
     )
     c.showPage()
+
+    # regular pages
+    for j in range(410):
+        c.setFont('Times-Roman',13)
+        for i in range(40):
+
+            aux = random.choices(chars,k=80)
+            aux = ''.join(aux)
+
+            c.drawString(
+                75,
+                h - 75 - 16*i,
+                aux,
+            )
+        c.showPage()
+
     c.save()
 
 

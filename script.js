@@ -12,11 +12,11 @@ document.getElementById("genBtn").addEventListener("click", async () => {
     if (!resp.ok) throw new Error(`Server error ${resp.status}`);
     const data = await resp.json();           // {pdf_url: "..."}
     document.getElementById("link").innerHTML =
-      `<a href="${data.pdf_url}" target="_blank">View generated PDF</a>`;
+      `<a href="${data.pdf_url}" target="_blank">Toma tu libro</a>`;
   } catch (e) {
     alert("Failed to generate PDF: " + e.message);
   } finally {
     btn.disabled = false;
-    btn.textContent = "Create PDF";
+    btn.textContent = "Tomar otro libro";
   }
 });

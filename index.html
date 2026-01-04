@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Biblioteca de Babel</title>
+
+  <!-- External styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Minimal fallback styles (optional) -->
   <style>
-    body {font-family: Arial, sans-serif; margin: 2rem;}
-    button {padding:.6rem 1.2rem; font-size:1rem;}
-    #link {margin-top:1rem;}
+    button { padding: .6rem 1.2rem; font-size: 1rem; }
+    #link { margin-top: 1rem; }
   </style>
 </head>
 <body>
-  <h1>La Biblioteca de Babel</h1>
-  <p>"A cada uno de los muros de cada hexágono corresponden cinco anaqueles; cada anaquel encierra treinta y dos libros de formato uniforme; cada libro es de cuatrocientas diez páginas; cada página, de cuarenta renglones; cada renglón, de unas ochenta letras de color negro. También hay letras en el dorso de cada libro; esas letras no indican o prefiguran lo que dirán las páginas. Sé que esa inconexión, alguna vez, pareció misteriosa."</p>
 
-  <button id="genBtn">Tomar libro</button>
-  <div id="link"></div>
+  <!-- Page wrapper (centers content over background) -->
+  <div class="page">
+
+    <!-- Paper-like content area -->
+    <div class="paper">
+
+      <h1>La Biblioteca de Babel</h1>
+
+      <div class="content">
+        <p>
+          "A cada uno de los muros de cada hexágono corresponden cinco anaqueles;
+          cada anaquel encierra treinta y dos libros de formato uniforme; cada
+          libro es de cuatrocientas diez páginas; cada página, de cuarenta
+          renglones; cada renglón, de unas ochenta letras de color negro.
+          También hay letras en el dorso de cada libro; esas letras no indican
+          o prefiguran lo que dirán las páginas. Sé que esa inconexión, alguna
+          vez, pareció misteriosa."
+          <br>
+          <br>
+      </div>
+
+      <div class="actions">
+        <button id="genBtn">Tomar libro</button>
+        <div id="link"></div>
+      </div>
+
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
